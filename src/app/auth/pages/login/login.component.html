@@ -1,1 +1,44 @@
-<p>login works!</p>
+<div class="login-wrapper flex justify-content-center align-items-center">
+  <p-card [style]="{ width: '450px', padding: '0 2rem' }">
+    <ng-template pTemplate="title">
+      <h2 class="text-center">Mi Tienda</h2>
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+      <h2 class="text-center">Iniciar sesión</h2>
+    </ng-template>
+    <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <div class="field">
+        <label>Usuario</label>
+        <input 
+          formControlName="username" 
+          type="text" 
+          pInputText 
+          class="w-full" 
+          placeholder="usuario@dominio.cl"
+        />
+        <small *ngIf="usernameLoginForm.touched && usernameLoginForm.errors?.['required']" class="p-error">
+          Debe ingresarun usuario
+        </small>
+        <small *ngIf="usernameLoginForm.touched && usernameLoginForm.errors?.['email']" class="p-error">
+          Usuario no válido
+        </small>
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <p-password formControlName="password" [feedback]="false" styleClass="w-full" inputStyleClass="w-full"
+          [toggleMask]="true"></p-password>
+        <small *ngIf="passwordLoginForm.touched && passwordLoginForm.errors?.['required']" class="p-error">
+          Debe ingresar una contraseña
+        </small>
+      </div>
+      <p-button 
+        label="Iniciar sesión" 
+        [loading]="loading" 
+        styleClass="w-full p-button-raised" 
+        type="submit"
+        [disabled]="loginForm.invalid">
+      </p-button>
+      <p-button label="Crear nueva cuenta" styleClass="p-button-link w-full"></p-button>
+    </form>
+  </p-card>
+</div>
