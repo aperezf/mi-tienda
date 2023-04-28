@@ -1,1 +1,68 @@
-<p>signin works!</p>
+<div class="auth-wrapper flex justify-content-center align-items-center">
+  <p-card [style]="{ width: '450px', padding: '0 2rem' }">
+    <ng-template pTemplate="title">
+      <h2 class="text-center">Mi Tienda</h2>
+    </ng-template>
+    <ng-template pTemplate="subtitle">
+      <h2 class="text-center">Iniciar sesión</h2>
+    </ng-template>
+    <form [formGroup]="signinForm" (ngSubmit)="signin()">
+      <div class="field">
+        <label>Nombre</label>
+        <input 
+          formControlName="name" 
+          type="text" 
+          pInputText 
+          class="w-full" 
+          placeholder="Ariel Pérez"
+        />
+        <small *ngIf="nameSigninForm.touched && nameSigninForm.errors?.['required']" class="p-error">
+          Debe ingresar un nombre
+        </small>
+      </div>
+      <div class="field">
+        <label>Correo electrónico</label>
+        <input 
+          formControlName="email" 
+          type="text" 
+          pInputText 
+          class="w-full" 
+          placeholder="usuario@dominio.cl"
+        />
+        <small *ngIf="emailSigninForm.touched && emailSigninForm.errors?.['required']" class="p-error">
+          Debe ingresar un correo electrónico
+        </small>
+        <small *ngIf="emailSigninForm.touched && emailSigninForm.errors?.['email']" class="p-error">
+          Correo electrónico no válido
+        </small>
+      </div>
+      <div class="field">
+        <label>Contraseña</label>
+        <p-password formControlName="password" [feedback]="false" styleClass="w-full" inputStyleClass="w-full"
+          [toggleMask]="true"></p-password>
+        <small *ngIf="passwordSigninForm.touched && passwordSigninForm.errors?.['required']" class="p-error">
+          Debe ingresar una contraseña
+        </small>
+      </div>
+      <div class="field">
+        <label>Confirmar contraseña</label>
+        <p-password formControlName="confirmPassword" [feedback]="false" styleClass="w-full" inputStyleClass="w-full"
+          [toggleMask]="true"></p-password>
+        <small *ngIf="confirmPasswordSigninForm.touched && confirmPasswordSigninForm.errors?.['required']" class="p-error">
+          Debe ingresar una contraseña
+        </small>
+        <small *ngIf="confirmPasswordSigninForm.touched && passwordSigninForm.value != confirmPasswordSigninForm.value" class="p-error">
+          Las contraseñas ingresadas no coinciden
+        </small>
+      </div>
+      <p-button 
+        label="Iniciar sesión" 
+        [loading]="loading" 
+        styleClass="w-full p-button-raised" 
+        type="submit"
+        [disabled]="signinForm.invalid">
+      </p-button>
+      <p-button label="Crear nueva cuenta" styleClass="p-button-link w-full" routerLink="/signin"></p-button>
+    </form>
+  </p-card>
+</div>

@@ -1,4 +1,4 @@
-<div class="login-wrapper flex justify-content-center align-items-center">
+<div class="auth-wrapper flex justify-content-center align-items-center">
   <p-card [style]="{ width: '450px', padding: '0 2rem' }">
     <ng-template pTemplate="title">
       <h2 class="text-center">Mi Tienda</h2>
@@ -17,7 +17,7 @@
           placeholder="usuario@dominio.cl"
         />
         <small *ngIf="usernameLoginForm.touched && usernameLoginForm.errors?.['required']" class="p-error">
-          Debe ingresarun usuario
+          Debe ingresar un usuario
         </small>
         <small *ngIf="usernameLoginForm.touched && usernameLoginForm.errors?.['email']" class="p-error">
           Usuario no válido
@@ -38,7 +38,7 @@
         type="submit"
         [disabled]="loginForm.invalid">
       </p-button>
-      <p-button label="Crear nueva cuenta" styleClass="p-button-link w-full"></p-button>
+      <p-button label="Crear nueva cuenta" styleClass="p-button-link w-full" routerLink="/signin"></p-button>
     </form>
   </p-card>
 </div>

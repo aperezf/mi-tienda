@@ -4,14 +4,14 @@ import { LoginComponent } from './pages/login/login.component';
 import { SigninComponent } from './pages/signin/signin.component';
 
 const routes: Routes = [
-  { 
-    path: 'login', 
-    component: LoginComponent
-  },
-  {
-    path: 'signin',
-    component: SigninComponent
-  }
+  // { 
+  //   path: 'login', 
+  //   component: LoginComponent
+  // },
+  // {
+  //   path: 'signin',
+  //   component: SigninComponent
+  // }
 ];
 
 @NgModule({

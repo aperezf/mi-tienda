@@ -4,3 +4,10 @@ body {
   height: 100vh;
   font-family: var(--font-family);
 }
+
+.auth-wrapper {
+  // width: 100vw;
+  height: 100vh;
+  background: rgb(3,4,94);
+  background: linear-gradient(45deg, rgba(3,4,94,1) 0%, rgba(2,62,138,1) 15%, rgba(0,119,182,1) 30%, rgba(0,150,199,1) 45%, rgba(0,180,216,1) 60%, rgba(72,202,228,1) 75%, rgba(144,224,239,1) 90%, rgba(173,232,244,1) 100%);
+}

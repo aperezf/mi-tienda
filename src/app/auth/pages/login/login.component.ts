@@ -12,11 +12,11 @@ export class LoginComponent {
   loginForm: FormGroup;
 
   get usernameLoginForm(): FormControl {
-    return this.loginForm.get('username') as FormControl;
+    return this.loginForm.get('username') as FormControl<string>;
   }
 
   get passwordLoginForm(): FormControl {
-    return this.loginForm.get('password') as FormControl;
+    return this.loginForm.get('password') as FormControl<string>;
   }
 
   constructor(
